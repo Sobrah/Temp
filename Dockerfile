@@ -1,13 +1,9 @@
-FROM alpine
+FROM internetsystemsconsortium/bind9:9.20
 
-RUN apk add --no-cache nginx
+WORKDIR /bind
 
-WORKDIR /nginx
-
-COPY nginx.conf .
+COPY . .
 
 EXPOSE 80
 
-ENTRYPOINT ["/usr/sbin/nginx"]
-
-CMD ["-c", "/nginx/nginx.conf"]
+CMD ["-g", "-c", "/bind/named.conf"]
