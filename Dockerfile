@@ -1,9 +1,5 @@
-FROM internetsystemsconsortium/bind9:9.20
+FROM nginx
 
-WORKDIR /bind
+COPY  nginx.conf /etc/nginx/nginx.conf
 
-COPY . .
-
-EXPOSE 80
-
-CMD ["-g", "-c", "/bind/named.conf"]
+ENTRYPOINT ["nginx"]
