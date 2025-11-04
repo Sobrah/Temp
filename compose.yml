@@ -1,0 +1,9 @@
+services:
+  nginx:
+    image: nginx
+    container_name: oproxy
+    ports:
+      - 8080:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    entrypoint: nginx
